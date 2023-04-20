@@ -15,3 +15,14 @@ Windows Presentation Foundation
   - 심플앱 만들기
   - DB 핸들링
   - 데이터
+
+## 3일차
+- WPF 기초
+  - 데이터바인딩 마무리
+  - 디자인 (템플릿, 스타일, 리소스, 리소스딕셔너리)
+  
+## 4일차
+- WPF 응용
+  - MahApps.Metro 디자인 적용
+  - MVVM 패턴
+  - 데이터바인딩 DB연동
