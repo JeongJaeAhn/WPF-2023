@@ -26,3 +26,5 @@ Windows Presentation Foundation
   - MahApps.Metro 디자인 적용
   - MVVM 패턴
   - 데이터바인딩 DB연동
+
+![](https://raw.githubusercontent.com/JeongJaeAhn/WPF-2023/main/Images/wpf01.png)
