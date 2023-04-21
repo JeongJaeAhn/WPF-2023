@@ -27,4 +27,6 @@ Windows Presentation Foundation
   - MVVM 패턴
   - 데이터바인딩 DB연동
 
-![](https://raw.githubusercontent.com/JeongJaeAhn/WPF-2023/main/Images/wpf01.png)
+4일차 MVVM View
+
+![wpf01](https://raw.githubusercontent.com/JeongJaeAhn/WPF-2023/main/Images/wpf01.png)
