@@ -30,3 +30,9 @@ Windows Presentation Foundation
 4일차 MVVM View
 
 ![wpf01](https://raw.githubusercontent.com/JeongJaeAhn/WPF-2023/main/Images/wpf01.png)
+
+## 5일차
+- WPF 응용
+  - MVVM 패턴
+  - MVVM Framework / Caliburn
+  - 데이터바인딩 DB연동
