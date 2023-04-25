@@ -9,11 +9,11 @@ namespace wp08_personalInfoApp.Logics
 {
     internal class Commons
     {
-        // Regular Expression 정규표현식
+        // Reqular Expression 정규표현식
         // 이메일 형식에 맞게 입력하도록 체크(검증체크)
         public static bool IsValidEmail(string email)
         {
-            var strPattern = @"^([0-9a-zA-Z]+)@([0-9a-zA-Z]+)(\.[0-9a-zA-Z]+){1,}$";
+            var strPattern = @"^([0-9a-zA-Z]+)@([0-9a-zA-Z]+)(\.[0-9a-zA-Z]+){1,}$"; // 다른 정규표현식
             return Regex.IsMatch(email, strPattern);
         }
 
@@ -21,9 +21,10 @@ namespace wp08_personalInfoApp.Logics
         {
             // 입력된 날짜로 나이를 계산
             int result;
-            if (DateTime.Now.Month < value.Month || DateTime.Now.Month == value.Month && DateTime.Now.Day < value.Day)
-            { 
-                result = DateTime.Now.Year - value.Year - 1; // 아직 생일이 안지남
+            if (DateTime.Now.Month < value.Month || DateTime.Now.Month == value.Month &&
+                DateTime.Now.Day < value.Day)
+            {
+                result = DateTime.Now.Year - value.Year - 1; // 아직 생일이 안지남 
             }
             else
             {
@@ -32,6 +33,7 @@ namespace wp08_personalInfoApp.Logics
             return result;
         }
 
+        // 입력된 생일로 12지신을 리턴
         public static string GetZodiac(DateTime value)
         {
             int reminder = value.Year % 12;

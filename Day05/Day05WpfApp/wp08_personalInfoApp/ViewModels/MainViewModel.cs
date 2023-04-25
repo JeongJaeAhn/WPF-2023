@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using wp08_personalInfoApp.Models;
@@ -27,17 +23,18 @@ namespace wp08_personalInfoApp.ViewModels
         private string outBirthDay;
         private string outZodiac;
 
-        public string InFristName
-        {
+        // 일이 많아짐. 실제로 사용할 속성
+        // 입력을 위한 속성들
+        public string InFirstName { 
             get => inFirstName;
             set
             {
                 inFirstName = value;
-                RaisePropertyChanged(nameof(InFristName)); // "InFirstName"
+                RaisePropertyChanged(nameof(InFirstName)); // "InFirstName"
             }
         }
-        public string InLastName
-        {
+
+        public string InLastName { 
             get => inLastName;
             set
             {
@@ -46,8 +43,7 @@ namespace wp08_personalInfoApp.ViewModels
             }
         }
 
-        public string InEmail
-        {
+        public string InEmail { 
             get => inEmail;
             set
             {
@@ -56,8 +52,7 @@ namespace wp08_personalInfoApp.ViewModels
             }
         }
 
-        public DateTime InDate
-        {
+        public DateTime InDate { 
             get => inDate;
             set
             {
@@ -66,8 +61,8 @@ namespace wp08_personalInfoApp.ViewModels
             }
         }
 
-        public string OutFirstName
-        {
+        // 출력을 위한 속성들
+        public string OutFirstName { 
             get => outFirstName;
             set
             {
@@ -75,8 +70,8 @@ namespace wp08_personalInfoApp.ViewModels
                 RaisePropertyChanged(nameof(OutFirstName));
             }
         }
-        public string OutLastName
-        {
+
+        public string OutLastName { 
             get => outLastName;
             set
             {
@@ -85,8 +80,7 @@ namespace wp08_personalInfoApp.ViewModels
             }
         }
 
-        public string OutEmail
-        {
+        public string OutEmail { 
             get => outEmail;
             set
             {
@@ -94,8 +88,7 @@ namespace wp08_personalInfoApp.ViewModels
                 RaisePropertyChanged(nameof(OutEmail));
             }
         }
-        public string OutDate
-        {
+        public string OutDate { 
             get => outDate;
             set
             {
@@ -103,8 +96,7 @@ namespace wp08_personalInfoApp.ViewModels
                 RaisePropertyChanged(nameof(OutDate));
             }
         }
-        public string OutAdult
-        {
+        public string OutAdult { 
             get => outAdult;
             set
             {
@@ -112,8 +104,7 @@ namespace wp08_personalInfoApp.ViewModels
                 RaisePropertyChanged(nameof(OutAdult));
             }
         }
-        public string OutBirthDay
-        {
+        public string OutBirthDay { 
             get => outBirthDay;
             set
             {
@@ -121,8 +112,7 @@ namespace wp08_personalInfoApp.ViewModels
                 RaisePropertyChanged(nameof(OutBirthDay));
             }
         }
-        public string OutZodiac
-        {
+        public string OutZodiac { 
             get => outZodiac;
             set
             {
@@ -137,11 +127,16 @@ namespace wp08_personalInfoApp.ViewModels
         {
             get
             {
+                // 모든 입력에 값이 들어가야지 버튼이 활성화됨
                 return proceedCommand ?? (proceedCommand = new RelayCommand<object>(
-                    o => Proceed(), o => true));
+                    o => Proceed(), o => !string.IsNullOrEmpty(inFirstName) &&
+                                         !string.IsNullOrEmpty(inLastName) &&
+                                         !string.IsNullOrEmpty(inEmail) &&
+                                         !string.IsNullOrEmpty(inDate.ToString())));
             }
         }
 
+        // 버튼 클릭시 실제로 처리를 수행하는 메서드
         private void Proceed()
         {
             try
@@ -155,7 +150,6 @@ namespace wp08_personalInfoApp.ViewModels
                 OutAdult = person.IsAdult == true ? "성년" : "미성년";
                 OutBirthDay = person.IsBirthDay == true ? "생일" : "-";
                 OutZodiac = person.Zodiac;
-                // 계속 진행...
             }
             catch (Exception ex)
             {

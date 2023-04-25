@@ -1,19 +1,13 @@
 ﻿using Caliburn.Micro;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using wp09_caliburnApp.Models;
 
 namespace wp09_caliburnApp.ViewModels
 {
-    internal class MainViewModel : Screen
+    public class MainViewModel : Screen
     {
-        // Caliburn versionUp으로 변경
-        private string firstName = "JeongJae";
-        public string FirstName
-        {
+        // Caliburn version업으로 변경
+        private string firstName = "MyungGun";
+        public string FirstName {
             get => firstName;
             set
             {
@@ -24,7 +18,7 @@ namespace wp09_caliburnApp.ViewModels
             }
         }
 
-        private string lastName = "Ahn";
+        private string lastName = "Sung";
 
         public string LastName
         {
@@ -34,7 +28,7 @@ namespace wp09_caliburnApp.ViewModels
                 lastName = value;
                 NotifyOfPropertyChange(() => LastName);
                 NotifyOfPropertyChange(nameof(CanClearName));
-                NotifyOfPropertyChange(nameof(FullName)); // 변화통보
+                NotifyOfPropertyChange(nameof(FullName)); // 변화 통보
             }
         }
 
@@ -43,6 +37,8 @@ namespace wp09_caliburnApp.ViewModels
             get => $"{LastName} {FirstName}";
         }
 
+        // 콤보박스에 바인딩할 속성
+        // 이런곳에서는 var를 쓸 수 없음
         private BindableCollection<Person> managers = new BindableCollection<Person>();
 
         public BindableCollection<Person> Managers
@@ -68,7 +64,7 @@ namespace wp09_caliburnApp.ViewModels
 
         public MainViewModel()
         {
-            // DB를 사용하면 여기서 DB접속 > 데이터를 Select까지...
+            // DB를 사용하면 여기서 DB접속 > 데이터 Select까지...
             Managers.Add(new Person { FirstName = "John", LastName = "Carmack" });
             Managers.Add(new Person { FirstName = "Steve", LastName = "Jobs" });
             Managers.Add(new Person { FirstName = "Bill", LastName = "Gates" });
@@ -84,11 +80,7 @@ namespace wp09_caliburnApp.ViewModels
         // 메서드와 이름동일하게 앞에 Can을 붙임
         public bool CanClearName
         {
-            get => !(string.IsNullOrEmpty(FirstName) && string.IsNullOrEmpty(LastName));
+            get => !string.IsNullOrEmpty(firstName) && !string.IsNullOrEmpty(lastName);
         }
-
-        private object seletedManager;
-
-        public object SeletedManager { get => seletedManager; set => Set(ref seletedManager, value); }
     }
 }

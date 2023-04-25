@@ -8,7 +8,7 @@ using System.Windows.Input;
 namespace wp08_personalInfoApp.ViewModels
 {
     /// <summary>
-    /// ViewModel과 View를 Glue하기 위한 클래스
+    /// ViewModel과 View를 Glue(풀칠)하기 위한 클래스
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class RelayCommand<T> : ICommand

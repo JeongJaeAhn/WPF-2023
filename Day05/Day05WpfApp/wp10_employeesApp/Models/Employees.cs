@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace wp10_employeesApp.Models
 {
     public class Employees
     {
         private int salary;
+
         public int Idx { get; set; }
         public string FullName { get; set; }
-        public int Salary {
+        public int Salary { 
             get => salary;
             set
             {
@@ -24,7 +21,6 @@ namespace wp10_employeesApp.Models
                     salary = value;
                 }
             }
-                
         }
         public string DeptName { get; set; }
         public string Address { get; set; }

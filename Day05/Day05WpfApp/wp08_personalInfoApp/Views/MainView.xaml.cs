@@ -25,7 +25,8 @@ namespace wp08_personalInfoApp.Views
         public MainView()
         {
             InitializeComponent();
-            this.DataContext = new MainViewModel();
+            this.DataContext = new MainViewModel(); // 뷰모델 바인딩외 
+            // 어떠한 이벤트핸들러 코드도 없음
         }
     }
 }

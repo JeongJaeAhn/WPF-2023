@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Hosting;
 using wp08_personalInfoApp.Logics;
 
 namespace wp08_personalInfoApp.Models
 {
     internal class Person
     {
-        // 외부에서 접근불가        
+        // 외부에서 접근불가
         private string email;
         private DateTime date;
 
@@ -19,21 +13,20 @@ namespace wp08_personalInfoApp.Models
         public string LastName { get; set; }
         public string Email { 
             get => email;
-            set
-            {
-               if (Commons.IsValidEmail(value) != true) // 이메일은 형식에 일치안함
+            set {
+                if (Commons.IsValidEmail(value) != true) // 이메일은 형식에 일치안함
                 {
                     throw new Exception("유효하지 않은 이메일형식");
                 }
-               else
+                else
                 {
                     email = value;
                 }
-            } 
-                }
-        public DateTime Date 
-        {
-            get => date;
+            }
+        }
+
+        public DateTime Date { 
+            get => date; 
             set
             {
                 var result = Commons.GetAge(value);
@@ -50,14 +43,15 @@ namespace wp08_personalInfoApp.Models
 
         public bool IsAdult
         {
-            get => Commons.GetAge(date) > 18; // 19살 이상이면 true            
+            get => Commons.GetAge(date) > 18; // 19살 이상이면 true
         }
 
         public bool IsBirthDay
         {
             get
             {
-                return DateTime.Now.Month == date.Month && DateTime.Now.Day == date.Day; // 오늘하고 월일 같으면 생일
+                return DateTime.Now.Month == date.Month && 
+                    DateTime.Now.Day == date.Day; // 오늘하고 월일 같으면 생일
             }
         }
 
