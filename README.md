@@ -36,3 +36,15 @@ Windows Presentation Foundation
   - MVVM 패턴
   - MVVM Framework / Caliburn
   - 데이터바인딩 DB연동
+
+## 6일차
+- WPF 응용
+  - 영화API 검색앱
+    - TMDB OpenAPI
+    - MahApps.Metro
+    - MahApps.Metro.Iconpacks
+    - Newtonsoft.json
+
+6일차 영화
+
+![wpf02](https://raw.githubusercontent.com/JeongJaeAhn/WPF-2023/main/Images/wpf02.png)
