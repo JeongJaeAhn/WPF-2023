@@ -48,3 +48,15 @@ Windows Presentation Foundation
 6일차 영화
 
 ![wpf02](https://raw.githubusercontent.com/JeongJaeAhn/WPF-2023/main/Images/wpf02.png)
+
+## 7일차
+- WPF 응용
+  - 영화검색앱
+    - 화면정리
+    - CefSharp.Wpf
+    - Youtube API
+    - DB 데이터바인딩
+    
+7일차 영화검색앱 중간
+
+![03](https://raw.githubusercontent.com/JeongJaeAhn/WPF-2023/main/Images/moviefinder.gif)
