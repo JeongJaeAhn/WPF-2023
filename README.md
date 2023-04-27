@@ -68,10 +68,11 @@ Windows Presentation Foundation
 		
 ![04](https://raw.githubusercontent.com/JeongJaeAhn/WPF-2023/main/Images/moviefinder2.gif)
 
-	- 미세먼지확인 앱 개발
-		- MahApps.Metro
-		- 데이터포털 OpenAPI
-		- DB 데이터바인딩(MySQL)
+
+- 미세먼지확인 앱 개발
+	- MahApps.Metro
+	- 데이터포털 OpenAPI
+	- DB 데이터바인딩(MySQL)
 		
 ![03](https://raw.githubusercontent.com/JeongJaeAhn/WPF-2023/main/Images/wpf03.png)
 
