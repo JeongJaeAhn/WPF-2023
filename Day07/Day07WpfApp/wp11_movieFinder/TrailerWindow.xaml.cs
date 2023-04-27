@@ -25,6 +25,7 @@ namespace wp11_movieFinder
     public partial class TrailerWindow : MetroWindow
     {
         List<YoutubeItem> youtubeItems = null; // 검색결과 담을 리스트
+
         public TrailerWindow()
         {
             InitializeComponent();
@@ -45,11 +46,11 @@ namespace wp11_movieFinder
         // 화면 로드 완료후에 YoutubeAPI 실행
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            youtubeItems = new List<YoutubeItem>(); // 초기화
-            TextSearchYoutubeApi();
+            youtubeItems = new List<YoutubeItem>(); //초기화
+            SearchYoutubeApi();
         }
 
-        private async void TextSearchYoutubeApi()
+        private async void SearchYoutubeApi()
         {
             await LoadDataCollection();
             LsvResult.ItemsSource = youtubeItems; // direct binding
@@ -70,36 +71,34 @@ namespace wp11_movieFinder
 
             var res = await req.ExecuteAsync(); // 검색결과를 받아옴
 
-            Debug.WriteLine("유튜브 검색결과 -----");
-            foreach (var item in res.Items) 
-            {                
+            Debug.WriteLine("유튜브 검색결과 ------");
+            foreach (var item in res.Items)
+            {
                 Debug.WriteLine(item.Snippet.Title);
-                if (item.Id.Kind.Equals("youtube#video")) // youtube#video 만 동영상 플레이 가능ㅇ
+                if (item.Id.Kind.Equals("youtube#video")) // youtube#video 만 동영상 플레이 가능
                 {
                     YoutubeItem youtube = new YoutubeItem()
                     {
                         Title = item.Snippet.Title,
                         ChannelTitle = item.Snippet.ChannelTitle,
-                        URL = $"https://www.youtube.com/watch?v={item.Id.VideoId}" // 
-                        //Author = item.Snippet.ChannelTitle
+                        URL = $"https://www.youtube.com/watch?v={item.Id.VideoId}", // 유튜브플레이 링크
+                        // Author = item.Snippet.ChannelTitle
                     };
 
-                    youtube.Thumbnail = new BitmapImage(new Uri(item.Snippet.Thumbnails.Default__.Url, 
+                    youtube.Thumbnail = new BitmapImage(new Uri(item.Snippet.Thumbnails.Default__.Url,
                                                         UriKind.RelativeOrAbsolute));
-
                     youtubeItems.Add(youtube);
                 }
             }
-            
-        }        
-        
+        }
+
         private void LsvResult_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (LsvResult.SelectedItems is YoutubeItem)
+            if (LsvResult.SelectedItem is YoutubeItem)
             {
                 var video = LsvResult.SelectedItem as YoutubeItem;
                 BrsYoutube.Address = video.URL;
-            }            
+            }
         }
 
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -107,7 +106,5 @@ namespace wp11_movieFinder
             BrsYoutube.Address = string.Empty; // 웹브라우저 주소 클리어
             BrsYoutube.Dispose(); // 리소스 해제(!)
         }
-
-        
     }
 }
