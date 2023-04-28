@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wp11_movieFinder", "wp11_mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wp12_finedustCheck", "wp12_finedustCheck\wp12_finedustCheck.csproj", "{CF1941BD-80BA-4190-B4F2-20447C23FC0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "openApi", "openApi\openApi.csproj", "{8F7B1834-C215-474B-9796-F57E3F36F5F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CF1941BD-80BA-4190-B4F2-20447C23FC0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF1941BD-80BA-4190-B4F2-20447C23FC0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF1941BD-80BA-4190-B4F2-20447C23FC0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F7B1834-C215-474B-9796-F57E3F36F5F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F7B1834-C215-474B-9796-F57E3F36F5F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F7B1834-C215-474B-9796-F57E3F36F5F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F7B1834-C215-474B-9796-F57E3F36F5F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
