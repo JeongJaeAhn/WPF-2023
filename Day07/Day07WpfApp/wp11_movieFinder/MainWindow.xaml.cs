@@ -250,7 +250,7 @@ namespace wp11_movieFinder
             */
 
             #region <MySQL 테스트>
-            /*
+            
             try
             {
                 // DB 연결확인
@@ -306,7 +306,7 @@ namespace wp11_movieFinder
             {
                 await Commons.ShowMessageAsync("오류", $"DB저장 오류 {ex.Message}");
             }
-            */
+            
             #endregion
             try
             {
