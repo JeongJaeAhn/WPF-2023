@@ -251,61 +251,61 @@ namespace wp11_movieFinder
 
             #region <MySQL 테스트>
             
-            try
-            {
-                // DB 연결확인
-                using (MySqlConnection conn = new MySqlConnection(Commons.myConnString))
-                {
-                    if (conn.State == ConnectionState.Closed) conn.Open();                    
-                    var query = @"INSERT INTO FavoriteMovieItem
-                                               (Id
-                                               ,Title
-                                               ,Original_Title
-                                               ,Release_Date
-                                               ,Original_Language
-                                               ,Adult
-                                               ,Popularity
-                                               ,Vote_Average
-                                               ,Poster_Path
-                                               ,Overview
-                                               ,Reg_Date)
-                                         VALUES
-                                               (@Id
-                                               ,@Title
-                                               ,@Original_Title
-                                               ,@Release_Date
-                                               ,@Original_Language
-                                               ,@Adult
-                                               ,@Popularity
-                                               ,@Vote_Average
-                                               ,@Poster_Path
-                                               ,@Overview
-                                               ,@Reg_Date) ";                    
+            //try
+            //{
+            //    // DB 연결확인
+            //    using (MySqlConnection conn = new MySqlConnection(Commons.myConnString))
+            //    {
+            //        if (conn.State == ConnectionState.Closed) conn.Open();                    
+            //        var query = @"INSERT INTO FavoriteMovieItem
+            //                                   (Id
+            //                                   ,Title
+            //                                   ,Original_Title
+            //                                   ,Release_Date
+            //                                   ,Original_Language
+            //                                   ,Adult
+            //                                   ,Popularity
+            //                                   ,Vote_Average
+            //                                   ,Poster_Path
+            //                                   ,Overview
+            //                                   ,Reg_Date)
+            //                             VALUES
+            //                                   (@Id
+            //                                   ,@Title
+            //                                   ,@Original_Title
+            //                                   ,@Release_Date
+            //                                   ,@Original_Language
+            //                                   ,@Adult
+            //                                   ,@Popularity
+            //                                   ,@Vote_Average
+            //                                   ,@Poster_Path
+            //                                   ,@Overview
+            //                                   ,@Reg_Date) ";                    
 
-                    var insRes = 0;
-                    foreach (FavoriteMovieItem item in list)
-                    {
-                        MySqlCommand cmd = new MySqlCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@Id", item.Id);
-                        cmd.Parameters.AddWithValue("@Title", item.Title);
-                        cmd.Parameters.AddWithValue("@Original_Title", item.Original_Title);
-                        cmd.Parameters.AddWithValue("@Release_Date", item.Release_Date);
-                        cmd.Parameters.AddWithValue("@Original_Language", item.Original_Language);
-                        cmd.Parameters.AddWithValue("@Adult", item.Adult);
-                        cmd.Parameters.AddWithValue("@Popularity", item.Popularity);
-                        cmd.Parameters.AddWithValue("@Vote_Average", item.Vote_Average);
-                        cmd.Parameters.AddWithValue("@Poster_Path", item.Poster_Path);
-                        cmd.Parameters.AddWithValue("@Overview", item.Overview);
-                        cmd.Parameters.AddWithValue("@Reg_Date", item.Reg_Date);
+            //        var insRes = 0;
+            //        foreach (FavoriteMovieItem item in list)
+            //        {
+            //            MySqlCommand cmd = new MySqlCommand(query, conn);
+            //            cmd.Parameters.AddWithValue("@Id", item.Id);
+            //            cmd.Parameters.AddWithValue("@Title", item.Title);
+            //            cmd.Parameters.AddWithValue("@Original_Title", item.Original_Title);
+            //            cmd.Parameters.AddWithValue("@Release_Date", item.Release_Date);
+            //            cmd.Parameters.AddWithValue("@Original_Language", item.Original_Language);
+            //            cmd.Parameters.AddWithValue("@Adult", item.Adult);
+            //            cmd.Parameters.AddWithValue("@Popularity", item.Popularity);
+            //            cmd.Parameters.AddWithValue("@Vote_Average", item.Vote_Average);
+            //            cmd.Parameters.AddWithValue("@Poster_Path", item.Poster_Path);
+            //            cmd.Parameters.AddWithValue("@Overview", item.Overview);
+            //            cmd.Parameters.AddWithValue("@Reg_Date", item.Reg_Date);
 
-                        insRes += cmd.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                await Commons.ShowMessageAsync("오류", $"DB저장 오류 {ex.Message}");
-            }
+            //            insRes += cmd.ExecuteNonQuery();
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    await Commons.ShowMessageAsync("오류", $"DB저장 오류 {ex.Message}");
+            //}
             
             #endregion
             try
